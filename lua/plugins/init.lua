@@ -1,1 +1,3 @@
-require("plugins.telescope")
+return {
+    require("plugins.telescope")
+}

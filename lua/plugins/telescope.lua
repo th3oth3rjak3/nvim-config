@@ -1,14 +1,21 @@
-vim.pack.add({
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/nvim-telescope/telescope.nvim",
-})
+return {
+  "nvim-telescope/telescope.nvim",
+  version = "*",
+  lazy = false,
 
-require("telescope").setup({
-  defaults = {
-    path_display = { "smart" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
   },
-})
 
-vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<CR>", {
-  desc = "Find files",
-})
+  config = function()
+    require("telescope").setup({
+      defaults = {
+        path_display = { "smart" },
+      },
+    })
+
+    vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<CR>", {
+      desc = "Find files",
+    })
+  end,
+}
